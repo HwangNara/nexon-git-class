@@ -202,8 +202,8 @@ git lg
 
 ---
 
-* ab118e1 - (73 minutes ago) Make st.md - Country
-* e5d33ad - (2 days ago) initial commit - Country (origin/main)
+* 01bbb2d - (16 hours ago) Make st.md - country (HEAD -> main)
+* 3598845 - (2 days ago) first commit - country (origin/main)
 ```
 
 ### add
@@ -218,10 +218,12 @@ git lg
     ---
 
     On branch main
-    Untracked files:
-    (use "git add <file>..." to include in what will be committed)
+    Your branch is ahead of 'origin/main' by 1 commit.
+      (use "git push" to publish your local commits)
 
-    index.md
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+      index.md
 
     nothing added to commit but untracked files present (use "git add" to track)
     ```
@@ -232,10 +234,12 @@ git lg
     ---
 
     On branch main
-    Changes to be committed:
-    (use "git reset HEAD <file>..." to unstage)
+    Your branch is ahead of 'origin/main' by 1 commit.
+      (use "git push" to publish your local commits)
 
-    new file:   index.md
+    Changes to be committed:
+      (use "git restore --staged <file>..." to unstage)
+      new file:   index.md
     ```
 - `Modified` 에서 진행
   - ```bash
@@ -244,11 +248,19 @@ git lg
 
     ---
 
-    Changes not staged for commit:
-    (use "git add <file>..." to update what will be committed)
-    (use "git checkout -- <file>..." to discard changes in working directory)
+    On branch main
+    Your branch is ahead of 'origin/main' by 1 commit.
+      (use "git push" to publish your local commits)
 
-    modified:   st.md
+    Changes to be committed:
+      (use "git restore --staged <file>..." to unstage)
+      new file:   index.md
+
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+      modified:   st.md
+
     ```
     ```bash
     git add st.md
@@ -257,11 +269,13 @@ git lg
     ---
 
     On branch main
-    Changes to be committed:
-    (use "git reset HEAD <file>..." to unstage)
+    Your branch is ahead of 'origin/main' by 1 commit.
+      (use "git push" to publish your local commits)
 
-    new file:   index.md
-    modified:   st.md
+    Changes to be committed:
+      (use "git restore --staged <file>..." to unstage)
+      new file:   index.md
+      modified:   st.md
     ```
 
 ### commit (ci)
@@ -275,27 +289,27 @@ git lg
 
   ---
 
-  [main 42298d3] Modify files
-  2 files changed, 2 insertions(+)
+  [main 16dbb22] Modify files
+  2 files changed, 3 insertions(+)
   create mode 100644 index.md
   ```
--  ```bash
-   git st
+- ```bash
+  git st
 
-   ---
+  ---
 
-   On branch main
-   nothing to commit, working tree clean
+  On branch main
+  Your branch is ahead of 'origin/main' by 2 commits.
+    (use "git push" to publish your local commits)
    ```
--  ```bash
-   git lg
+- ```bash
+  git lg
 
-   ---
+  ---
 
-   * 1e928bc - (20 seconds ago) Modify files - Country (HEAD -> main)
-   * 51462d0 - (4 hours ago) Modify st.md - Country
-   * ab118e1 - (4 hours ago) Make st.md - Country
-   * e5d33ad - (2 days ago) initial commit - Country (origin/main)  
+  * 16dbb22 - (4 minutes ago) Modify files - country (HEAD -> main)
+  * 01bbb2d - (17 hours ago) Make st.md - country
+  * 3598845 - (2 days ago) first commit - country (origin/main)
    ```
 #### 옵션
 - `-m` : 메시지를 넣음
@@ -310,19 +324,18 @@ git lg
 
     ---
 
-    * 1e928bc - (5 minutes ago) Modify files - Country (HEAD -> main)
-    * 51462d0 - (4 hours ago) Modify st.md - Country
-    * ab118e1 - (4 hours ago) Make st.md - Country
-    * e5d33ad - (2 days ago) initial commit - Country (origin/main)
+    * 16dbb22 - (4 minutes ago) Modify files - country (HEAD -> main)
+    * 01bbb2d - (17 hours ago) Make st.md - country
+    * 3598845 - (2 days ago) first commit - country (origin/main)
     ```
     ```bash  
     git ci --amend
 
     ---
 
-    [main 69e0e26] Rewrite commit message
-    Date: Mon Mar 9 23:32:31 2020 +0900
-    2 files changed, 2 insertions(+)
+    [main ad2a22c] Rewrite commit message
+    Date: Tue Nov 22 15:57:49 2022 +0900
+    2 files changed, 3 insertions(+)
     create mode 100644 index.md
     ```
     ```bash
@@ -330,10 +343,9 @@ git lg
 
     ---
 
-    * b0c729f - (6 minutes ago) Rewrite commit message - Country (HEAD -> main)
-    * 51462d0 - (4 hours ago) Modify st.md - Country
-    * ab118e1 - (4 hours ago) Make st.md - Country
-    * e5d33ad - (2 days ago) initial commit - Country (origin/main)
+    * ad2a22c - (5 minutes ago) Rewrite commit message - country (HEAD -> main)
+    * 01bbb2d - (17 hours ago) Make st.md - country
+    * 3598845 - (2 days ago) first commit - country (origin/main)
     ```
 
 ### branch (br)
@@ -343,11 +355,21 @@ git lg
 - 브랜치 확인: `git br`
 - 브랜치 생성: `git br test/1`
 - 브랜치 삭제: `git br -D test/1`
+- 옵션 `-d` 와 `-D`의 차이점
+    - -d: 브랜치를 삭제. 단, 커밋이 발생했음에도 원격저장소에 머지가 되지 않으면 실패함. --delete의 단축명령 
+    - -D: 강제로 브랜치를 삭제. -d --force 의 단축명령
+    - [추가 정보](https://git-scm.com/docs/git-branch)
 
 ### branch 전략
+어떤 브랜치들을 어떻게 운용하는지 등을 다루는 것
+#### branch 전략들
+- Git Flow, GitHub Flow, GitLab Flow, Trunk-based development, Ship / Show / Ask ...
+- 참고
+  - https://www.flagship.io/git-branching-strategies/
+  - https://martinfowler.com/articles/ship-show-ask.html
 #### Git branch 전략 (Git Flow)
 - ![GitFlow](./images/gitflow.png)
-- main
+- main (master)
   - git init하면 생기는 태초의 브랜치
   - 배포 가능한, 말그대로 main 브랜치
   - 보통 태그를 따서 태그로 배포함
@@ -367,11 +389,6 @@ git lg
   - 새로운 기능들을 추가하여 배포하기 위한 브랜치
   - 생성 위치: `develop`
   - merge: `main` & `develop`
-- 다른 Git branch 전략들도 있음
-  - GitHub Flow, GitLab Flow, Trunk-based development, Ship / Show / Ask ...
-  - 참고
-    - https://www.flagship.io/git-branching-strategies/
-    - https://martinfowler.com/articles/ship-show-ask.html
 
 #### HEAD
 - 지금 작업하는 로컬 브랜치를 가리키는 포인터 ([3.1 Git 브랜치 - 브랜치란 무엇인가](https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80))
@@ -414,43 +431,31 @@ git lg
 
 ### switch TIP
 - 커밋의 hash값을 알면 시간 여행이 가능함
+- `git si -d {commit key}` (= `git co {commit key}`)
 - ```bash
   git lg
   
   ---
 
-  * b0c729f - (3 hours ago) Rewrite commit message - Country (HEAD -> main)
-  * 51462d0 - (6 hours ago) Modify st.md - Country
-  * ab118e1 - (7 hours ago) Make st.md - Country
-  * e5d33ad - (2 days ago) initial commit - Country (origin/main)
+  * 57d12b9 - (32 hours ago) Rewrite commit message - country (HEAD -> main, develop)
+  * 01bbb2d - (2 days ago) Make st.md - country
+  * 3598845 - (3 days ago) first commit - country (origin/main)
   ```
 - ```bash
-  git co e5d33ad
-
+  git si -d 3598845
+  
   ---
 
-  Note: checking out 'e5d33ad'.
-
-  You are in 'detached HEAD' state. You can look around, make experimental
-  changes and commit them, and you can discard any commits you make in this
-  state without impacting any branches by performing another checkout.
-
-  If you want to create a new branch to retain commits you create, you may
-  do so (now or later) by using -b with the checkout command again. Example:
-
-  git checkout -b <new-branch-name>
-
-  HEAD is now at e5d33ad initial commit
+  HEAD is now at 3598845 first commit
   ```
 - ```bash
   git lg
 
   ---
 
-  * b0c729f - (3 hours ago) Rewrite commit message - Country (main)
-  * 51462d0 - (6 hours ago) Modify st.md - Country
-  * ab118e1 - (7 hours ago) Make st.md - Country
-  * e5d33ad - (2 days ago) initial commit - Country (HEAD, origin/main)
+  * 57d12b9 - (32 hours ago) Rewrite commit message - country (main, develop)
+  * 01bbb2d - (2 days ago) Make st.md - country
+  * 3598845 - (3 days ago) first commit - country (HEAD, origin/main)
   ```
 
 ### push
@@ -473,14 +478,14 @@ git lg
   ](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EB%A6%AC%EB%AA%A8%ED%8A%B8-%EC%A0%80%EC%9E%A5%EC%86%8C))
 - `fetch`: 서버에서 데이터만 가져오고 자동으로 코드를 합치지는 않음
 - ```bash
-  -- 새로운 디렉토리
+  -- 새로운 디렉토리 (다른 사람이라고 가정)
   cd ~
   mkdir git-other
   cd git-other
   git clone 'https://github.com/HwangNara/nexon-git-exer.git'
-  cd git-class
+  cd nexon-git-exer
   vi README.md
-  git ci -am 'Modify README.md'
+  git ci -am 'pull test on README.md'
   git push
   ```
 - ```bash
@@ -492,6 +497,9 @@ git lg
 - 환경: main에서 딴 test 브랜치 / 2개의 터미널
 - 내용
   1. fetch vs. pull
+      - `git config --global push.autoSetupRemote true`
+      - ([origin에 브랜치 없어도 생성 후 푸시](https://countryxide.tistory.com/187))
+`
   2. pull 충돌 실험
   3. branch 삭제
 - 추가 명령어
@@ -505,6 +513,7 @@ git lg
 ### stash
 - 작업 하던 내용을 임시 저장
 - 브랜치에서 작업하다가 다른 브랜치로 변경해야 하는데 커밋은 하고 싶지 않은 경우
+  - 브랜치 이동 시에도 가능 ()
 - stack처럼 작동
 - `stash`, `pop`을 많이 사용
 - 실습
@@ -517,6 +526,7 @@ git lg
   git st
   ```
 - `apply`, `drop` 등의 옵션이 있음
+- [7.3 Git 도구 - Stashing과 Cleaning](https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-Stashing%EA%B3%BC-Cleaning)
 
 ### merge
 - 협업의 핵심. 다른 브랜치와 현재 브랜치를 합쳐서 코드를 합침
@@ -550,7 +560,7 @@ git lg
   - 해당 커밋을 기반으로 작업을 했을 텐데 그 기반을 바꿔 버리는 것
   - `push`를 했더라도 아직 merge되지 않았고 다른 사람이 사용하지 않는 브랜치라면 (보통 feature 브랜치) 마음대로 `rebase`를 해도 무방
 - `-i`: 대화형 모드
-- 가장 위에 있는 커밋이 오래된 것 (`git st`와 반대)
+- 가장 위에 있는 커밋이 오래된 것 (`git lg`와 반대)
 - 옵션
   - `--abort` : rebase를 중단. 원래 상태로 돌아감
   - `--continue` : rebase를 계속 진행. 다음 단계로 넘어감
@@ -592,11 +602,12 @@ git lg
 
       ---
 
-      On branch develop
-      Changes to be committed:
-      (use "git reset HEAD <file>..." to unstage)
+      On branch main
+      Your branch is up to date with 'origin/main'.
 
-      modified:   README.md
+      Changes to be committed:
+        (use "git restore --staged <file>..." to unstage)
+        modified:   README.md
       ```
   - `--mixed` (기본)
     - `commit` 명령도 되돌리고, `add` 명령까지 되돌림 (`Modified` 상태가 됨)
@@ -607,16 +618,19 @@ git lg
 
       ---
 
-      On branch develop
-      Changes not staged for commit:
-      (use "git add <file>..." to update what will be committed)
-      (use "git checkout -- <file>..." to discard changes in working directory)
+      On branch main
+      Your branch is up to date with 'origin/main'.
 
-      modified:   README.md  
+      Changes not staged for commit:
+        (use "git add <file>..." to update what will be committed)
+        (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+      no changes added to commit (use "git add" and/or "git commit -a")          
       ```
   - `--hard`
     - `commit` 명령도 되돌리고, `add` 명령도 되돌리고, 워킹 디렉토리까지 되돌림 (`Unmodified` 상태가 됨)
-    - 워킹 디렉토리까지 되돌려 버리기 때문에 복구가 불가능!
+    - `reflog`나  IDE의 local history 기능 등을 이용해서 복구가 가능
     - ```bash
       git ci -am 'Commit for reset exer'
       git reset --hard @^
@@ -624,20 +638,22 @@ git lg
 
       ---
 
-      On branch develop
-      nothing to commit, working tree clean
+      On branch main
+      Your branch is up to date with 'origin/main'.
+
+      nothing to commit, working tree clean      
       ```
 
 ### cherry-pick
 - 다른 커밋을 가져옴
 - 커밋의 수가 적다면 merge나 rebase보다 간결하고 깔끔한 트리를 유지할 수 있음
 ```bash
-git co main
-git co -b feature/f
+git si main
+git si -c feature/f
 vi README.md
-git ci -am 'Cherry-pick test'
+git ci -am 'cherry-pick test'
 
-git co main
+git si main
 git cherry-pick {{hash}}
 
 ```
